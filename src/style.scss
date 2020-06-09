@@ -1,0 +1,527 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@100;400;700&family=Raleway:wght@400;700&display=swap');
+
+@mixin center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+@mixin abs-center{
+    @include center();
+    justify-content: center;
+}
+
+//global
+html,
+body{
+    padding:0;
+    margin:0;
+    overflow-x: hidden;
+}
+body{
+    @include center();
+}
+header,
+main,
+footer{ 
+    @include center();
+    width: 1440px;
+    position: relative;
+}
+section{
+    position: relative;
+}
+header::before,
+section::before,
+footer::before{ 
+    content: '';
+    z-index: -1;
+    display: block;
+    width: 100vw;
+    height: 100%;
+    left:50%;
+    transform: translateX(-50%);
+    background-color: inherit;
+    position: absolute;
+}
+section{
+    width:100%;
+}
+//sections  
+.header{
+    position: relative;
+    background-color: #eff0f2;
+    .header__logo{
+        position: absolute;
+        top: 65px;
+        left:  150px;
+        padding: 3px 7px;
+        border: 5px groove #170f1c;
+        strong{
+            font-size: 21px;
+            color: #77efe5;
+        }
+        font-size: 17px;
+        letter-spacing: 1px;
+        line-height: 28px;
+        color: #000000;
+        font-family: "Montserrat";
+        font-weight: 700;
+        text-align: center;
+        filter: drop-shadow(0 0 1px rgba(21,21,22,0.75));
+    }
+    .header__title{ 
+        strong{
+            background-color: #b2f2ee;
+            padding: 0px 10px;
+            margin:0px 6px;
+            text-shadow: 3.517px 8.285px 5px rgba(0,0,0,0.14);
+            filter: unset;
+        }
+        margin-top: 304px;
+        letter-spacing: 1.9px;
+        line-height: 59px;
+        font-size: 45px;
+        color: #505050;
+        font-family: "Montserrat";
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: 3.517px 8.285px 5px rgba(0,0,0,0.14);  
+    }
+    .header__contact-anchor{
+        margin-top: 100px;
+        margin-bottom: 195px;
+        padding: 10px 44px;
+        font-size: 18px;
+        letter-spacing: 2px;
+        line-height: 28px;
+        color: #000000; 
+        background-color: transparent; 
+        font-family: "Montserrat";
+        font-weight: 400;
+        border-style: solid;
+        cursor: pointer;
+        transition: .2s;
+        &:hover{
+            background: #505050;
+            color:white;
+            border-color: #749c9a;
+        }
+    }
+    .header__img{
+        position: absolute;
+        right: 243px;
+        margin-top: 585px;
+    }
+}
+.title{
+    font-size: 38px;
+    letter-spacing: 2px;
+    line-height: 0px;
+    color: #000000;
+    font-family: "Montserrat";
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+.subtitle{
+    margin-top:-4px;
+    font-size: 18px;
+    letter-spacing: 1.2px;
+    color: #5e5f5f;
+    font-family: "Merriweather";
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+}
+.subtitle--small{
+    @extend .subtitle;
+    font-size: 17px;
+}
+.about-us{
+    background-color: #f8fafa;
+    .about-us__title{
+        margin-top:143px;
+    }
+    .about-us__subtitle{
+        margin-top:-4px;
+    }
+    .about-us__flex{
+        margin: 113px 192px 63px;
+        padding-left: 37px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .about-us__content{
+        width:470px;
+        margin-top: 16px;
+    }
+    .about-us__img{
+        margin-top:30px;
+        box-shadow: 0 0 25px #0000001d;
+        border-radius: 2px;
+        transition: .3s;
+        &:hover{
+            box-shadow: 0 0 35px #0000003d;
+        }
+    }
+    .content{
+        .content__title{
+            text-transform: uppercase;
+            font-size: 20px;
+            letter-spacing: 1.25px;
+            line-height: 1px;
+            color: #000000;
+            font-family: "Merriweather";
+            font-weight: 700;
+        }
+        .content__title--small{
+            @extend .content__title;  
+            font-size: 17px;
+            margin-top: 35px;
+            margin-bottom:-5px;
+        }
+        .content__text{
+            margin-top: 32px;
+            width: 500px;
+            height: 231px;
+            font-size: 16px;
+            letter-spacing: .87px;
+            line-height: 28px;
+            color: #5e5f5f;
+            font-family: "Raleway";
+            font-weight: 400;
+            white-space: pre-wrap;
+        }
+    }
+}
+.imgs-block__img-cont{
+    display: grid;
+    grid-template-columns: 370px 370px 370px;
+    gap:13px 15px;
+    justify-content: center;
+    align-content: center;
+    .imgs-block__img{
+        transition: .3s;
+        &:hover{
+            transform: scale(1.03);
+            cursor: pointer;
+            box-shadow: 0 0 35px #0000003d;
+        }
+    }
+}
+.imgs-block__wrapper{
+    position: relative;
+    &:hover{
+        .imgs-block__img{
+            transform: scale(1.03);
+            box-shadow: 0 0 35px #0000003d;
+        }
+        .imgs-block__hover{
+            opacity: 1;
+            z-index: 3;
+            transform: translateX(0px);
+        }
+    }
+    .imgs-block__hover{
+        left: 18px;
+        top: 187px;
+        position: absolute;
+        width: 335px;
+        height: 241px;
+        filter: drop-shadow(2.735px 6.444px 8px rgba(20,20,21,0.18));
+        background-color: #6df6eb;
+        opacity: 0;
+        transition: .4s;
+        transform: translateX(-30px);
+        &::after {
+            content: ''; 
+            position: absolute;
+            left: 22px; 
+            top: -30px;
+            border: 10px solid transparent;
+            border-bottom: 20px solid #6df6eb;
+        }
+        .t-hover__title{
+            display: block;
+            margin-top:38px;
+            transform: translateX(-7px);
+            font-size: 20px;
+            letter-spacing: 1px;
+            line-height: 24px;
+            color: #272727;
+            font-family: "Merriweather";
+            font-weight: 700;
+            text-align: center;
+            i{
+                font-size: 15px;
+                letter-spacing: 1px;
+                line-height: 24px;
+                color: #7a7a7a;
+                font-family: "Merriweather";
+                font-weight: 400;
+                text-align: center;
+            }
+        }
+        .t-hover__text{
+            position: relative;
+            display: block;
+            margin-top:-4px;
+            left:39px;
+            width: 246px;
+            height: 71px;
+            font-size: 16px;
+            letter-spacing: 0.1px;
+            line-height: 24px;
+            color: #000000;
+            font-family: "Raleway";
+            font-weight: 400;
+        }
+        .t-hover__contacts{
+            position: relative;
+            left:39px;
+            top:15px;
+            svg{
+                font-size: 15px;
+                margin-right:7px;
+                color:#214946;
+                transition: .2s;
+                &:hover{
+                    cursor: pointer;
+                    color:black;
+                    transform: translateY(-3px);
+                }
+            }
+        }
+    }
+}
+.f-works{
+    .f-works__title{
+        margin-top: 141px;
+    }
+    .f-works__subtitle{
+        font-size: 17px;
+    }
+    .f-works__images{
+        margin-top: 120px;
+        margin-bottom: 125px;
+    }
+}
+.s-team{
+    background-color: #f9fbfb;
+    .s-team__title{
+        margin-top: 111px;
+    }
+    .s-team__subtitle{
+        margin-top: -5px;
+    }
+    .s-team__images{
+        margin-top:120px;
+    }
+}
+.form{
+    width: 614px;
+    height: 460px;
+    filter: drop-shadow(0 0 15px rgba(21,21,21,0.12));
+    background-color: #021623b0;
+    display:flex;
+    flex-direction: column;
+    input,textarea{
+        width:calc(100% - 62px);
+        margin-left:31px;
+        height:40px;
+        color:white;
+        background-color: transparent;
+        border:0px solid transparent;
+        border-bottom: 1.5px solid #aab2b744;
+        &::placeholder{
+            font-size: 15px;
+            line-height: 51px;
+            color: #aab2b7;
+            font-family: "Raleway";
+            font-weight: 400;
+        }
+    }
+    .form__name{
+        margin-top:34px;
+    }
+    .form__subject{
+        margin-top:16px;
+    }
+    .form__email{
+        margin-top:16px;
+    }
+    .form__message{
+        height: 122px;
+        margin-top:8px;
+        overflow: hidden;
+        resize: none;
+    }
+    .form__submit{
+        margin-left: 31px;
+        margin-top: 38px;
+        width: 244px;
+        height: 53px;
+        border-radius: 2px;
+        background-color: #6eeee4;
+        border:0px solid transparent;
+        padding:0;
+        font-size: 18px;
+        letter-spacing: 2px;
+        line-height: 28px;
+        color: #000000;
+        font-family: "Montserrat";
+        font-weight: 400;
+        transition: .3s;
+        &:hover{
+            transform: translateX(3px);
+            cursor: pointer;
+            background-color: rgb(236, 195, 236);
+        }
+    }
+}
+.info{
+    $width: 500px;
+    width: $width;
+    height: 460px;
+    filter: drop-shadow(0 0 15px rgba(21,21,21,0.12));
+    background-color: #021623b0;
+    span,a{
+        display: block;
+        font-size: 15px;    
+        color: #aab2b7;
+        font-family: "Raleway";
+        font-weight: 400;
+        line-height: 0;
+        transition: .2s;
+        &:hover{
+            transform: translateX(3px);
+            color:rgb(236, 195, 236);
+        }
+    }
+    a{
+        text-decoration: none;
+    }
+    .info__adress1{
+        margin-top: 42px;
+        margin-left: 31px;
+    }
+    .info__adress2{
+        margin-top: 6px;
+        margin-left: 31px;
+    }
+    .info__phone{
+        margin-top: 5px;
+        margin-left: 31px;
+    }
+    .info__fax{
+        margin-top: 6px;
+        margin-left: 31px;
+    }
+    .info__web{
+        margin-top: 29px;
+        margin-left: 31px;  
+    }
+    .info__email{
+        margin-top: 5px;
+        margin-left: 31px;
+        margin-bottom: 11px;
+    }
+    .info__map{
+        margin-top: 4px;
+        iframe{
+            margin-left: ($width - 455px) / 2;
+            width:455px;
+            height:224px;
+        }
+    }
+}
+.contact-us{
+    position: relative;
+    background-color: #f9fbfb;
+    padding-bottom: 123px;
+    .contact-us__background{
+        width:100vw;
+        height: 100%;
+        left:50%;
+        transform: translateX(-50%);
+        position: absolute;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: 100vw;
+    }
+    .contact-us__container{
+        display: flex;
+        padding-left:150px;
+        padding-right:150px;
+        margin-top:308px;
+        position: relative;
+        justify-content: space-between;
+    }
+    .contact-us__title-mask--hidden{
+        color:transparent;
+        display: block;
+        position: absolute;
+        left:50%;
+        transform: translateX(-50%);
+        top:0px;
+        width:100vw;
+        height: 100%;
+        margin:0;
+        background-color: rgba(255,255,255,.6);
+    }
+    .contact-us__gradient-mask{
+        color:transparent;
+        display: block;
+        position: absolute;
+        left:50%;
+        transform: translateX(-50%);
+        top:0px;
+        width:100vw;
+        height: 100%;
+        margin:0;
+        background: linear-gradient(to top, transparent 0%, #f9fbfb 80%);
+    }
+}
+.footer{
+    background-color: #262b2e;
+    .footer__title{
+        margin-top: 88px;
+        font-size: 16px;
+        letter-spacing: 0px;
+        line-height: 25px;
+        color: #d4d5d5;
+        font-family: "Raleway";
+        font-weight: 400;
+    }
+    .footer__links-container{
+        display: flex;
+        padding-bottom:149px;
+        a{
+            overflow: hidden;
+            padding:0px 4px;
+            width: 45px;
+            height: 40px;
+            background-color: #3f4244;
+            background-clip: content-box;
+            display: block;
+            @include abs-center();
+            svg{
+                font-size: 22px;
+                color: #bbb8b9;
+                transition: .2s;
+            }
+            transition: .2s;
+            &:hover{
+                background-color: #6eeee4;
+                svg{
+                    color: black;   
+                }
+            }
+        }
+    }
+    .footer__links-container--pinterest{
+        background-color: transparent;
+    }
+}
